@@ -1,0 +1,14 @@
+{
+  "name": "getsiteinfo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "getCss.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^2.0.0"
+  }
+}
