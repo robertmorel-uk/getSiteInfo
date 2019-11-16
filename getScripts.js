@@ -1,19 +1,19 @@
 const puppeteer = require('puppeteer');
 
-//Execute script using node getScripts.js {site url} {filetype}
+//Execute script using node getScripts.js {site url} {fileNameSearchTerm}
 //EG: node getScripts.js https://imgur.com css
 
 function main(){
   const url = process.argv[2];
-  const filetype = process.argv[3];
+  const fileNameSearchTerm = process.argv[3];
 
   if (url == null ){
     console.log("Please enter a url as the first parameter. e.g. https://imgur.com");
     return;
   }
 
-  if (filetype == null ){
-    console.log("Please enter a filetype as the 2nd parameter. e.g. css or js");
+  if (fileNameSearchTerm == null ){
+    console.log("Please enter a file Name Search Term as the 2nd parameter. e.g. css, js, bootstrap or jquery");
     return;
   }
   console.log(`Searching: ${url}`);
@@ -23,10 +23,10 @@ function main(){
     const page = await browser.newPage();
 
     // Emitted when the page produces a request
-    console.group(`The following ${filetype} files were requested:`);
+    console.group(`Files containing the search term: ${fileNameSearchTerm} were requested:`);
     page.on('request', request => {
         let requestUrl = request.url();
-        if( requestUrl.includes( filetype ) && !requestUrl.includes("base64")){
+        if( requestUrl.includes( fileNameSearchTerm ) && !requestUrl.includes("base64")){
           console.info(`Request: ${request.url()}`);
         }
     });
