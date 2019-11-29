@@ -8,6 +8,9 @@
   },
   "author": "",
   "license": "ISC",
+  "bin": {
+    "getscripts": "./getScripts.js"
+  },
   "dependencies": {
     "puppeteer": "^2.0.0"
   }

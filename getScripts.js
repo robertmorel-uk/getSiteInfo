@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const puppeteer = require('puppeteer');
 
 //Execute script using node getScripts.js {site url} {fileNameSearchTerm}
