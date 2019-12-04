@@ -5,12 +5,14 @@ const puppeteer = require('puppeteer');
 //EG: node getScripts.js https://imgur.com css
 
 function main(){
-  const url = process.argv[2];
-  const fileNameSearchTerm = process.argv[3];
+  let url = process.argv[2];
+  let fileNameSearchTerm = process.argv[3];
 
   if (url == null ){
     console.log("Please enter a url as the first parameter. e.g. https://imgur.com");
     return;
+  } else if (url.indexOf('http') === -1){
+    url = "http://" + url;
   }
 
   if (fileNameSearchTerm == null ){
